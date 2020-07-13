@@ -1,0 +1,3 @@
+{
+  "mongoURI": "mongodb+srv://lucidck:Code2020@devconnector.8chmo.mongodb.net/<dbname>?retryWrites=true&w=majority"
+}
