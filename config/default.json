@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://lucidck:Code2020@devconnector.8chmo.mongodb.net/<dbname>?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://lucidck:Code2020@devconnector.ajot0.mongodb.net/devConnector?retryWrites=true&w=majority",
+  "jwtSecret": "mysecrettoken"
 }
