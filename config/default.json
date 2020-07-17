@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://lucidck:Code2020@devconnector.ajot0.mongodb.net/devConnector?retryWrites=true&w=majority",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "bc953d0861171487dded",
+  "githubSecret": "ef0462e7cfa31f4bc7f0c84dbba58ddd82e9634d"
 }
