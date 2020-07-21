@@ -28,11 +28,9 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    // So you don't have to keep typing req.body (destructure)
     const { name, email, password } = req.body;
 
     try {
-      // See if user exists
       let user = await User.findOne({ email });
 
       if (user) {
@@ -41,12 +39,14 @@ router.post(
           .json({ errors: [{ msg: "User already exists" }] });
       }
 
-      // Get users gravatar
-      const avatar = gravatar.url(email, {
-        s: "200",
-        r: "pg",
-        d: "mm",
-      });
+      const avatar = normalize(
+        gravatar.url(email, {
+          s: "200",
+          r: "pg",
+          d: "mm",
+        }),
+        { forceHttps: true }
+      );
 
       user = new User({
         name,
@@ -55,15 +55,12 @@ router.post(
         password,
       });
 
-      // Encrypt password
       const salt = await bcrypt.genSalt(10);
 
       user.password = await bcrypt.hash(password, salt);
 
-      //   Save User
       await user.save();
 
-      //  Create Payload
       const payload = {
         user: {
           id: user.id,
